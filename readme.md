@@ -1,2 +1,1 @@
-## Prosjektmappe : Her skal det "komplette" prosjektet ligge.
-nhhyh8
+Weather app for the visually impaired - IN2000 Software Engineering
