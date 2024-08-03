@@ -1,0 +1,118 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+
+android {
+    namespace 'com.example.gruppe22_in2000'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.gruppe22_in2000"
+        minSdk 30
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.2.0'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+ext{
+    ktor_version = '1.6.3'
+    kotlin_version = '1.7.0'
+}
+
+dependencies {
+    //UI-stuff, endret til 1.5.1 for å få getLocation til å fungere
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1"
+    implementation("io.coil-kt:coil-compose:2.0.0-rc01")
+
+    //Get data
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation "io.ktor:ktor-client-android:$ktor_version"
+    implementation "io.ktor:ktor-client-json:$ktor_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1"
+    implementation "io.ktor:ktor-client-core:$ktor_version"
+    implementation "io.ktor:ktor-client-serialization:$ktor_version"
+
+    //Play Services
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.5.1"
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha10"
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+
+    // Compose testing dependencies
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.3.3'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    //androidTestImplementation 'androidx.test:rules:1.4.0'
+
+
+    // Required -- JUnit 4 framework
+    testImplementation 'junit:junit:4.13.2'
+    // Optional -- Robolectric environment
+    testImplementation 'androidx.test:core:1.4.0'
+    // Optional -- Mockito framework
+    testImplementation 'org.mockito:mockito-core:3.11.2'
+    // AndroidJUnitRunner and JUnit Rules
+   // androidTestImplementation 'androidx.test:runner:1.4.0'
+   // androidTestImplementation 'androidx.test:rules:1.4.0'
+    // Optional -- Espresso UI testing
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // Defaults
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    //implementation 'androidx.activity:activity-compose:1.3.1'
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.compose.material3:material3:1.0.0-alpha11'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+
+    implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation 'androidx.compose.foundation:foundation:1.1.0'
+    implementation 'androidx.compose.material:material:1.1.0'
+
+
+
+
+
+}
