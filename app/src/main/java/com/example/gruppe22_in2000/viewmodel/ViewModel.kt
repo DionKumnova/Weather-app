@@ -98,7 +98,6 @@ class WeatherViewModel(context: Context) : ViewModel() {
 
     private suspend fun getCoordinatesFromQuery(query: String): LocationDetails? {
         val geocodingUrl =
-            "https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=AIzaSyC_yGrsC7md_hbBiVCgNo5ybJFad1L2GYM" // NY NOKKEL
         val client = HttpClient()
         val response: HttpResponse = try {
             client.get(geocodingUrl)
